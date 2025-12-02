@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbot-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatbot-test
+  template:
+    metadata:
+      labels:
+        app: chatbot-test
+    spec:
+      containers:
+      - name: chatbot
+        image: bumbum29/copyed-chatbot-image:latest  # 여기 이미지 버전 바꾸면서 테스트 가능
+        ports:
+        - containerPort: 5000
+
